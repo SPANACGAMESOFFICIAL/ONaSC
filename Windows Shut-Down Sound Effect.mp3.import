@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dkh513i2dg2ep"
+path="res://.godot/imported/Windows Shut-Down Sound Effect.mp3-4873dd98018a45a78d8b41e2689055c8.mp3str"
+
+[deps]
+
+source_file="res://Windows Shut-Down Sound Effect.mp3"
+dest_files=["res://.godot/imported/Windows Shut-Down Sound Effect.mp3-4873dd98018a45a78d8b41e2689055c8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

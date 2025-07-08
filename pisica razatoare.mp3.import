@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dems5befpjlq2"
+path="res://.godot/imported/pisica razatoare.mp3-f7bd0def434bbb403726ef59424a4a12.mp3str"
+
+[deps]
+
+source_file="res://pisica razatoare.mp3"
+dest_files=["res://.godot/imported/pisica razatoare.mp3-f7bd0def434bbb403726ef59424a4a12.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

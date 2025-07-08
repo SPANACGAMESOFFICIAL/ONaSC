@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=3 uid="uid://hlmkxwhbxb7t"]
+
+[ext_resource type="Script" uid="uid://cfynw857fctys" path="res://other screens/6_am.gd" id="1_oby1c"]
+[ext_resource type="FontFile" uid="uid://dgwcg2ek3j57h" path="res://OpenSans-Italic-VariableFont_wdth,wght.ttf" id="1_qj1qd"]
+[ext_resource type="Texture2D" uid="uid://coyghrne5xubq" path="res://the guy.jpg" id="2_o70xo"]
+[ext_resource type="AudioStream" uid="uid://i4sg153e8e84" path="res://6 am jingle.mp3" id="3_n5xqc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_o70xo"]
+font = ExtResource("1_qj1qd")
+font_size = 80
+
+[sub_resource type="Animation" id="Animation_oby1c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_n5xqc"]
+resource_name = "fade in"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(5, 7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_148ux"]
+_data = {
+&"RESET": SubResource("Animation_oby1c"),
+&"fade in": SubResource("Animation_n5xqc")
+}
+
+[node name="6 am" type="CanvasLayer"]
+script = ExtResource("1_oby1c")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -9.0
+offset_top = -9.0
+offset_right = 1161.0
+offset_bottom = 672.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 482.0
+offset_top = 290.0
+offset_right = 659.0
+offset_bottom = 400.0
+text = "6 AM	"
+label_settings = SubResource("LabelSettings_o70xo")
+
+[node name="the guy" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(576, 333)
+scale = Vector2(3.0567, 1.46911)
+texture = ExtResource("2_o70xo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="the guy"]
+libraries = {
+&"": SubResource("AnimationLibrary_148ux")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_n5xqc")
+autoplay = true
+
+[node name="back to the menu baby" type="Timer" parent="."]
+wait_time = 15.0
+autostart = true
+
+[connection signal="timeout" from="back to the menu baby" to="." method="_on_back_to_the_menu_baby_timeout"]

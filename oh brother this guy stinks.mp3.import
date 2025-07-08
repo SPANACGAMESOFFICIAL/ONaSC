@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cyjy2qddlnno"
+path="res://.godot/imported/oh brother this guy stinks.mp3-3b760e1e8e1ded9d1581fec5b5d45ffc.mp3str"
+
+[deps]
+
+source_file="res://oh brother this guy stinks.mp3"
+dest_files=["res://.godot/imported/oh brother this guy stinks.mp3-3b760e1e8e1ded9d1581fec5b5d45ffc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

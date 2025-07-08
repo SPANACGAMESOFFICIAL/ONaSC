@@ -1,0 +1,139 @@
+[gd_scene load_steps=9 format=3 uid="uid://biw6xoex5knuu"]
+
+[ext_resource type="Script" uid="uid://hpb7af24eh3c" path="res://scripts/office.gd" id="1_ei2s5"]
+[ext_resource type="Texture2D" uid="uid://bntwologlls2p" path="res://icon.svg" id="1_g3mwp"]
+[ext_resource type="Script" uid="uid://ddwfmc45r61r5" path="res://clock.gd" id="3_u8nhc"]
+[ext_resource type="Script" uid="uid://dn54gw5mlhkxf" path="res://clock_that_counts_until_6_am_bc_im_stupid_as_fuck.gd" id="4_43ocd"]
+
+[sub_resource type="Animation" id="Animation_u8nhc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(587, 186)]
+}
+
+[sub_resource type="Animation" id="Animation_ei2s5"]
+resource_name = "closing"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(587, 186), Vector2(587, 400)]
+}
+
+[sub_resource type="Animation" id="Animation_43ocd"]
+resource_name = "opening"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(587, 400), Vector2(587, 186)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hsito"]
+_data = {
+&"RESET": SubResource("Animation_u8nhc"),
+&"closing": SubResource("Animation_ei2s5"),
+&"opening": SubResource("Animation_43ocd")
+}
+
+[node name="office" type="Node2D"]
+script = ExtResource("1_ei2s5")
+
+[node name="enemy" type="Sprite2D" parent="."]
+position = Vector2(588, 453)
+texture = ExtResource("1_g3mwp")
+
+[node name="appearence time" type="Timer" parent="enemy"]
+autostart = true
+
+[node name="kill time" type="Timer" parent="enemy"]
+
+[node name="doors button" type="Button" parent="."]
+offset_left = 557.0
+offset_top = 583.0
+offset_right = 613.0
+offset_bottom = 614.0
+text = "DOOR"
+
+[node name="door" type="Sprite2D" parent="."]
+position = Vector2(587, 186)
+scale = Vector2(1.96094, 1.99609)
+texture = ExtResource("1_g3mwp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="door"]
+libraries = {
+&"": SubResource("AnimationLibrary_hsito")
+}
+
+[node name="power timer" type="Timer" parent="."]
+wait_time = 10.0
+
+[node name="ui" type="CanvasLayer" parent="."]
+
+[node name="power left" type="ProgressBar" parent="ui"]
+offset_left = 135.0
+offset_top = 603.0
+offset_right = 334.0
+offset_bottom = 637.0
+value = 100.0
+show_percentage = false
+
+[node name="door power" type="Label" parent="ui"]
+offset_left = 16.0
+offset_top = 611.0
+offset_right = 129.0
+offset_bottom = 634.0
+text = "DOOR POWER:"
+
+[node name="time display" type="Label" parent="ui"]
+offset_left = 1035.0
+offset_top = 18.0
+offset_right = 1120.0
+offset_bottom = 41.0
+text = "TIME:           AM"
+
+[node name="clock" type="Label" parent="ui"]
+offset_left = 1079.0
+offset_top = 18.0
+offset_right = 1121.0
+offset_bottom = 41.0
+text = "12"
+horizontal_alignment = 1
+script = ExtResource("3_u8nhc")
+
+[node name="time counter" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="clock until 6 am" type="Timer" parent="."]
+autostart = true
+script = ExtResource("4_43ocd")
+
+[connection signal="timeout" from="enemy/appearence time" to="." method="_on_appearence_time_timeout"]
+[connection signal="timeout" from="enemy/kill time" to="." method="_on_kill_time_timeout"]
+[connection signal="pressed" from="doors button" to="." method="_on_doors_button_pressed"]
+[connection signal="timeout" from="power timer" to="." method="_on_power_timer_timeout"]
+[connection signal="timeout" from="time counter" to="." method="_on_time_counter_timeout"]
+[connection signal="timeout" from="time counter" to="ui/clock" method="_on_time_counter_timeout"]
+[connection signal="timeout" from="clock until 6 am" to="." method="_on_clock_until_6_am_timeout"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://co16m6kdwd1xv"
+path="res://.godot/imported/cat running.mp3-e240c1d7ad6f94d15a4cd4b31b7e6266.mp3str"
+
+[deps]
+
+source_file="res://cat running.mp3"
+dest_files=["res://.godot/imported/cat running.mp3-e240c1d7ad6f94d15a4cd4b31b7e6266.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

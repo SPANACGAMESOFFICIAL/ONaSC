@@ -1,0 +1,455 @@
+[gd_scene load_steps=44 format=3 uid="uid://c4aoykaqhebgn"]
+
+[ext_resource type="Script" uid="uid://hpb7af24eh3c" path="res://scripts/office.gd" id="1_o2l0i"]
+[ext_resource type="Texture2D" uid="uid://bjhtcywi8ac5t" path="res://office.png" id="2_krbua"]
+[ext_resource type="Texture2D" uid="uid://dl51b1u7wkmd5" path="res://sour cream.png" id="2_yden1"]
+[ext_resource type="Script" uid="uid://ddwfmc45r61r5" path="res://clock.gd" id="3_0gwdo"]
+[ext_resource type="AudioStream" uid="uid://dems5befpjlq2" path="res://pisica razatoare.mp3" id="3_acbcy"]
+[ext_resource type="FontFile" uid="uid://dgwcg2ek3j57h" path="res://OpenSans-Italic-VariableFont_wdth,wght.ttf" id="4_0gwdo"]
+[ext_resource type="Script" uid="uid://dn54gw5mlhkxf" path="res://clock_that_counts_until_6_am_bc_im_stupid_as_fuck.gd" id="4_marqq"]
+[ext_resource type="Texture2D" uid="uid://b3obvx4mhmur7" path="res://usa de garaj.jpg" id="4_yden1"]
+[ext_resource type="AudioStream" uid="uid://dbcnm7pq8f8vi" path="res://creepy ambient.mp3" id="7_marqq"]
+[ext_resource type="AudioStream" uid="uid://cmgr68pqm4j2k" path="res://Gears spinning sound effect.mp3" id="10_hihi5"]
+[ext_resource type="AudioStream" uid="uid://ctp4f500gauao" path="res://carlos.mp3" id="11_mgrxj"]
+[ext_resource type="AudioStream" uid="uid://cc7os35bouyel" path="res://hanging up.mp3" id="12_quq51"]
+[ext_resource type="AudioStream" uid="uid://co16m6kdwd1xv" path="res://cat running.mp3" id="13_8cqma"]
+[ext_resource type="Script" uid="uid://bfjrt667cixy6" path="res://nights/demilich.gd" id="14_enry4"]
+[ext_resource type="AudioStream" uid="uid://gcxff8erl85" path="res://ragait.mp3" id="15_v8xyx"]
+[ext_resource type="AudioStream" uid="uid://ckf3ftctoch68" path="res://i'm car.mp3" id="16_fef2t"]
+[ext_resource type="Script" uid="uid://cnlne4ys2ebte" path="res://nights/car.gd" id="16_i7t3t"]
+[ext_resource type="AudioStream" uid="uid://dxlw105w1gf1g" path="res://gamer scream.mp3" id="17_i7t3t"]
+[ext_resource type="AudioStream" uid="uid://igyhug0sj2fi" path="res://im a genius.mp3" id="18_sse1q"]
+[ext_resource type="Script" uid="uid://clprusqbmd0jw" path="res://nights/kanye.gd" id="18_wwe6t"]
+[ext_resource type="Script" uid="uid://dmc1aofi4xmln" path="res://nights/officer_down.gd" id="20_57u8f"]
+[ext_resource type="AudioStream" uid="uid://dkh513i2dg2ep" path="res://Windows Shut-Down Sound Effect.mp3" id="22_qcdbe"]
+[ext_resource type="AudioStream" uid="uid://cfd58jmamlcon" path="res://Power Down Sound effect.mp3" id="23_p5bbp"]
+[ext_resource type="AudioStream" uid="uid://o80lhe01mlbk" path="res://Backrooms ambience -sound effects.mp3" id="24_glp8w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8cqma"]
+size = Vector2(207, 217)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v8xyx"]
+size = Vector2(195, 185)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fef2t"]
+size = Vector2(233, 257)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i7t3t"]
+size = Vector2(328, 174)
+
+[sub_resource type="Animation" id="Animation_acbcy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.2, 0.2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8m0h8"]
+resource_name = "appearence"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_o2l0i"]
+resource_name = "jumpscare"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.200529),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.2, 0.194), Vector2(8, 7.775)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_acbcy"]
+_data = {
+&"RESET": SubResource("Animation_acbcy"),
+&"appearence": SubResource("Animation_8m0h8"),
+&"jumpscare": SubResource("Animation_o2l0i")
+}
+
+[sub_resource type="Animation" id="Animation_u8nhc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(587, 186)]
+}
+
+[sub_resource type="Animation" id="Animation_ei2s5"]
+resource_name = "closing"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(587, 186), Vector2(587, 400)]
+}
+
+[sub_resource type="Animation" id="Animation_43ocd"]
+resource_name = "opening"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(587, 400), Vector2(587, 186)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hsito"]
+_data = {
+&"RESET": SubResource("Animation_u8nhc"),
+&"closing": SubResource("Animation_ei2s5"),
+&"opening": SubResource("Animation_43ocd")
+}
+
+[sub_resource type="Animation" id="Animation_glp8w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.556863)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.890196, 0.890196, 0, 0.235294)]
+}
+
+[sub_resource type="Animation" id="Animation_p5bbp"]
+resource_name = "power on"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.556863), Color(1, 1, 0.533333, 0.439216)]
+}
+
+[sub_resource type="Animation" id="Animation_l6k18"]
+resource_name = "power_down"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.6, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.858824, 0.85098, 0.835294, 0), Color(0, 0.121569, 0.129412, 0.784314)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_glp8w"]
+_data = {
+&"RESET": SubResource("Animation_glp8w"),
+&"power on": SubResource("Animation_p5bbp"),
+&"power_down": SubResource("Animation_l6k18")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_0gwdo"]
+font = ExtResource("4_0gwdo")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_acbcy"]
+font = ExtResource("4_0gwdo")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_marqq"]
+font = ExtResource("4_0gwdo")
+font_size = 44
+
+[node name="office" type="Node2D"]
+script = ExtResource("1_o2l0i")
+
+[node name="office sprite" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("2_krbua")
+
+[node name="office shit" type="Node2D" parent="."]
+
+[node name="demilich" type="Area2D" parent="office shit"]
+script = ExtResource("14_enry4")
+
+[node name="burp" type="AudioStreamPlayer" parent="office shit/demilich"]
+stream = ExtResource("15_v8xyx")
+
+[node name="demilich col shape" type="CollisionShape2D" parent="office shit/demilich"]
+position = Vector2(273.5, 514)
+shape = SubResource("RectangleShape2D_8cqma")
+
+[node name="car" type="Area2D" parent="office shit"]
+script = ExtResource("16_i7t3t")
+
+[node name="car col shape" type="CollisionShape2D" parent="office shit/car"]
+position = Vector2(142.5, 297.5)
+shape = SubResource("RectangleShape2D_v8xyx")
+
+[node name="im car" type="AudioStreamPlayer" parent="office shit/car"]
+stream = ExtResource("16_fef2t")
+volume_db = 8.432
+
+[node name="kanye" type="Area2D" parent="office shit"]
+script = ExtResource("18_wwe6t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="office shit/kanye"]
+position = Vector2(982.5, 193.5)
+shape = SubResource("RectangleShape2D_fef2t")
+
+[node name="im a genius" type="AudioStreamPlayer" parent="office shit/kanye"]
+stream = ExtResource("18_sse1q")
+
+[node name="officer down" type="Area2D" parent="office shit"]
+script = ExtResource("20_57u8f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="office shit/officer down"]
+position = Vector2(972, 533)
+shape = SubResource("RectangleShape2D_i7t3t")
+
+[node name="scream" type="AudioStreamPlayer" parent="office shit/officer down"]
+stream = ExtResource("17_i7t3t")
+volume_db = -18.854
+
+[node name="jumpscare timer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[node name="enemy" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(593, 413)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_yden1")
+
+[node name="appearence time" type="Timer" parent="enemy"]
+autostart = true
+
+[node name="kill time" type="Timer" parent="enemy"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemy"]
+libraries = {
+&"": SubResource("AnimationLibrary_acbcy")
+}
+
+[node name="funy jumpscare haha" type="AudioStreamPlayer" parent="enemy"]
+stream = ExtResource("3_acbcy")
+volume_db = 24.0
+
+[node name="door" type="Sprite2D" parent="."]
+position = Vector2(587, 186)
+scale = Vector2(0.129883, 0.175581)
+texture = ExtResource("4_yden1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="door"]
+libraries = {
+&"": SubResource("AnimationLibrary_hsito")
+}
+
+[node name="power filter" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.556863)
+light_mask = 2
+visibility_layer = 2
+offset_left = -22.0
+offset_top = -12.0
+offset_right = 1224.0
+offset_bottom = 680.0
+color = Color(0.890196, 0.890196, 0, 0.235294)
+
+[node name="power filter animations" type="AnimationPlayer" parent="power filter"]
+libraries = {
+&"": SubResource("AnimationLibrary_glp8w")
+}
+autoplay = "power on"
+
+[node name="doors button" type="Button" parent="."]
+offset_left = 550.0
+offset_top = 510.0
+offset_right = 641.0
+offset_bottom = 582.0
+text = "DOOR"
+
+[node name="power timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="ui" type="CanvasLayer" parent="."]
+
+[node name="power left" type="ProgressBar" parent="ui"]
+offset_left = 201.0
+offset_top = 627.0
+offset_right = 1140.0
+offset_bottom = 643.0
+value = 100.0
+show_percentage = false
+
+[node name="door power" type="Label" parent="ui"]
+offset_left = 2.0
+offset_top = 612.0
+offset_right = 194.0
+offset_bottom = 654.0
+text = "DOOR POWER:"
+label_settings = SubResource("LabelSettings_0gwdo")
+
+[node name="time display" type="Label" parent="ui"]
+offset_left = 879.0
+offset_top = 2.0
+offset_right = 1140.0
+offset_bottom = 57.0
+text = "TIME:           AM"
+label_settings = SubResource("LabelSettings_acbcy")
+
+[node name="clock" type="Label" parent="ui"]
+offset_left = 1022.0
+offset_top = -4.0
+offset_right = 1070.0
+offset_bottom = 57.0
+text = "12"
+label_settings = SubResource("LabelSettings_marqq")
+horizontal_alignment = 1
+script = ExtResource("3_0gwdo")
+
+[node name="time counter" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
+[node name="clock until 6 am" type="Timer" parent="."]
+autostart = true
+script = ExtResource("4_marqq")
+
+[node name="power out timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_marqq")
+volume_db = 10.811
+autoplay = true
+
+[node name="door sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_hihi5")
+
+[node name="carlos" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_mgrxj")
+volume_db = -12.18
+autoplay = true
+
+[node name="skip call" type="Button" parent="."]
+offset_left = 307.0
+offset_top = 234.0
+offset_right = 391.0
+offset_bottom = 265.0
+text = "SKIP CALL"
+
+[node name="hang up call" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_quq51")
+
+[node name="kitty run" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_8cqma")
+
+[node name="shutting down" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_qcdbe")
+
+[node name="powering down" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_p5bbp")
+
+[node name="backrooms" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_glp8w")
+volume_db = 4.685
+autoplay = true
+
+[connection signal="finished" from="office shit/demilich/burp" to="office shit/demilich" method="_on_burp_finished"]
+[connection signal="finished" from="office shit/car/im car" to="office shit/car" method="_on_im_car_finished"]
+[connection signal="timeout" from="jumpscare timer" to="." method="_on_jumpscare_timer_timeout"]
+[connection signal="timeout" from="enemy/appearence time" to="." method="_on_appearence_time_timeout"]
+[connection signal="timeout" from="enemy/kill time" to="." method="_on_kill_time_timeout"]
+[connection signal="pressed" from="doors button" to="." method="_on_doors_button_pressed"]
+[connection signal="timeout" from="power timer" to="." method="_on_power_timer_timeout"]
+[connection signal="timeout" from="time counter" to="." method="_on_time_counter_timeout"]
+[connection signal="timeout" from="time counter" to="ui/clock" method="_on_time_counter_timeout"]
+[connection signal="timeout" from="clock until 6 am" to="." method="_on_clock_until_6_am_timeout"]
+[connection signal="timeout" from="power out timer" to="." method="_on_power_out_timer_timeout"]
+[connection signal="finished" from="carlos" to="." method="_on_carlos_finished"]
+[connection signal="pressed" from="skip call" to="." method="_on_skip_call_pressed"]
+[connection signal="finished" from="backrooms" to="." method="_on_backrooms_finished"]

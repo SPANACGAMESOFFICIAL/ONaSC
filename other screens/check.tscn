@@ -1,0 +1,107 @@
+[gd_scene load_steps=10 format=3 uid="uid://bs3llumdafa6n"]
+
+[ext_resource type="Script" uid="uid://74x5ueascqbk" path="res://other screens/check.gd" id="1_byrfe"]
+[ext_resource type="Texture2D" uid="uid://cci3ra10h4l0" path="res://check.png" id="1_oqim1"]
+[ext_resource type="FontFile" uid="uid://dgwcg2ek3j57h" path="res://OpenSans-Italic-VariableFont_wdth,wght.ttf" id="2_wgvp6"]
+[ext_resource type="AudioStream" uid="uid://bxxpkkliqmbpt" path="res://Misconception (Piano Version) - Myuu.mp3" id="3_613an"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_613an"]
+font = ExtResource("2_wgvp6")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_byrfe"]
+font = ExtResource("2_wgvp6")
+font_size = 55
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_byrfe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_613an"]
+resource_name = "fade"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 15, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_byrfe"]
+_data = {
+&"RESET": SubResource("Animation_byrfe"),
+&"fade": SubResource("Animation_613an")
+}
+
+[node name="check" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_byrfe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(587, 344)
+texture = ExtResource("1_oqim1")
+
+[node name="Label" type="Label" parent="Sprite2D"]
+offset_left = 271.0
+offset_top = -147.0
+offset_right = 499.0
+offset_bottom = -72.0
+text = "idk also
+ why did 
+the font change"
+label_settings = SubResource("LabelSettings_613an")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_613an")
+autoplay = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 47.0
+offset_right = 988.0
+offset_bottom = 123.0
+text = "THE END! Thank you for playing :)"
+label_settings = SubResource("LabelSettings_byrfe")
+
+[node name="fade" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -35.0
+offset_top = -20.0
+offset_right = 1185.0
+offset_bottom = 690.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="fade"]
+libraries = {
+&"": SubResource("AnimationLibrary_byrfe")
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

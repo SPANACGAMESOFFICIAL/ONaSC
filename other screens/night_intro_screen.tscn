@@ -1,0 +1,283 @@
+[gd_scene load_steps=18 format=3 uid="uid://bd8s4pmm4yoqo"]
+
+[ext_resource type="Script" uid="uid://boq8vsy26l5w8" path="res://other screens/night_intro_screen.gd" id="1_fr5ms"]
+[ext_resource type="FontFile" uid="uid://dgwcg2ek3j57h" path="res://OpenSans-Italic-VariableFont_wdth,wght.ttf" id="1_i3332"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fr5ms"]
+font = ExtResource("1_i3332")
+font_size = 200
+
+[sub_resource type="Animation" id="Animation_fr5ms"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_i3332"]
+resource_name = "fade"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fr5ms"]
+_data = {
+&"RESET": SubResource("Animation_fr5ms"),
+&"fade": SubResource("Animation_i3332")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_i3332"]
+font = ExtResource("1_i3332")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_k8x0a"]
+font = ExtResource("1_i3332")
+font_size = 20
+
+[sub_resource type="Animation" id="Animation_s642q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_k8x0a"]
+resource_name = "fadeout again"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dwhxu"]
+_data = {
+&"RESET": SubResource("Animation_s642q"),
+&"fadeout again": SubResource("Animation_k8x0a")
+}
+
+[sub_resource type="Animation" id="Animation_bvf5h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dwhxu"]
+resource_name = "yet another fadeout again"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aqwye"]
+_data = {
+&"RESET": SubResource("Animation_bvf5h"),
+&"yet another fadeout again": SubResource("Animation_dwhxu")
+}
+
+[sub_resource type="Animation" id="Animation_qayeg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_aqwye"]
+resource_name = "master fade"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uo8hj"]
+_data = {
+&"RESET": SubResource("Animation_qayeg"),
+&"master fade": SubResource("Animation_aqwye")
+}
+
+[node name="night intro screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fr5ms")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -18.0
+offset_top = -10.0
+offset_right = 1172.0
+offset_bottom = 670.0
+color = Color(0, 0, 0, 1)
+
+[node name="night 1" type="Label" parent="."]
+layout_mode = 0
+offset_left = 228.0
+offset_top = 97.0
+offset_right = 1141.0
+offset_bottom = 370.0
+text = "Night 1"
+label_settings = SubResource("LabelSettings_fr5ms")
+
+[node name="fadeout night 1" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 200.0
+offset_top = 95.0
+offset_right = 917.0
+offset_bottom = 386.0
+color = Color(0, 0, 0, 1)
+
+[node name="animation night 1" type="AnimationPlayer" parent="fadeout night 1"]
+libraries = {
+&"": SubResource("AnimationLibrary_fr5ms")
+}
+
+[node name="haha look at me guys im so quirky hahahah" type="Label" parent="."]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 392.0
+offset_right = 754.0
+offset_bottom = 476.0
+text = "more like the only night actually"
+label_settings = SubResource("LabelSettings_i3332")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 509.0
+offset_top = 493.0
+offset_right = 554.0
+offset_bottom = 521.0
+text = "sorry"
+label_settings = SubResource("LabelSettings_k8x0a")
+
+[node name="fadeout text 2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 293.0
+offset_top = 383.0
+offset_right = 765.0
+offset_bottom = 450.0
+color = Color(0, 0, 0, 1)
+
+[node name="animation text 2" type="AnimationPlayer" parent="fadeout text 2"]
+libraries = {
+&"": SubResource("AnimationLibrary_dwhxu")
+}
+
+[node name="fadeout text 3" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 502.0
+offset_top = 496.0
+offset_right = 579.0
+offset_bottom = 536.0
+color = Color(0, 0, 0, 1)
+
+[node name="animation text 3" type="AnimationPlayer" parent="fadeout text 3"]
+libraries = {
+&"": SubResource("AnimationLibrary_aqwye")
+}
+
+[node name="timer night 1" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="timer text 2" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="timer text 3" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="master fadeout" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -123.0
+offset_top = -55.0
+offset_right = 1470.0
+offset_bottom = 806.0
+color = Color(0, 0, 0, 1)
+
+[node name="master of puppets" type="AnimationPlayer" parent="master fadeout"]
+libraries = {
+&"": SubResource("AnimationLibrary_uo8hj")
+}
+
+[node name="master timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="timer night 1" to="." method="_on_timer_night_1_timeout"]
+[connection signal="timeout" from="timer text 2" to="." method="_on_timer_text_2_timeout"]
+[connection signal="timeout" from="timer text 3" to="." method="_on_timer_text_3_timeout"]
+[connection signal="timeout" from="master timer" to="." method="_on_master_timer_timeout"]
